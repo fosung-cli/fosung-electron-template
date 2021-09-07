@@ -1,18 +1,17 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-
+import FosungFront from 'fosung-front'
 import FosungUI from 'fosung-ui'
 import VueElectron from 'vue-electron'
+import VueCompositionApi from '@vue/composition-api'
+import { menu } from './router'
+
 import 'fosung-ui/lib/theme-chalk/index.css'
-Vue.use(VueElectron)
-Vue.use(FosungUI)
+import 'fosung-front/lib/fosung-front.css'
 
-Vue.config.productionTip = false
+const fosungFront = new FosungFront()
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+fosungFront.storeBuilder().addModules(require.context('@/store/', true, /\.js$/))
+fosungFront.httpBuilder().api(require.context('@/api/', true, /\.js$/))
+fosungFront.routerBuilder().menu(menu).mode(process.env.IS_ELECTRON ? 'history' : 'hash')
+fosungFront.vueBuilder().install(FosungUI, { size: 'mini' }).install(VueElectron).install(VueCompositionApi).components(require.context('@/components/', true, /\.vue$/)) // 注册全局组件
+
+fosungFront.build()
