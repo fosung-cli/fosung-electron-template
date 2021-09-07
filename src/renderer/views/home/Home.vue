@@ -22,7 +22,7 @@ export default defineComponent({
       useElectronEvent(root)
     })
     const onClick = () => {
-      root.$electron.ipcRenderer.send('fosung-init', { a: 1, b: 2 })
+      // root.$electron.ipcRenderer.send('fosung-init', { a: 1, b: 2 })
     }
     return { onClick }
   }
