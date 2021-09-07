@@ -8,34 +8,23 @@
 </template>
 
 <script>
+import { defineComponent, onMounted } from '@vue/composition-api'
 import useWebView from './hooks/useWebView'
 import useElectronEvent from './hooks/useElectronEvent'
 // import fs from 'fs'
 
-export default {
+export default defineComponent({
   name: 'Home',
-  components: {
-  },
-  mounted () {
-    useWebView()
-    // fs.writeFileSync('./src/renderer/views/input.txt', '这是测试文件', (err, data) => {
-    //   if (err) {
-    //     console.log(err)
-    //   } else {
-    //     console.log(data)
-    //   }
-    // })
-    useElectronEvent(this)
-    // this.$electron.ipcRenderer.send('fosung-init', { a: 1, b: 2 })
-    // this.$electron.ipcRenderer.on('@fs/init', (event, args) => {
-    //   console.log('args', args)
-    // })
-  },
-  methods: {
-    onClick () {
-      this.$electron.ipcRenderer.send('fosung-init', { a: 1, b: 2 })
-      // window.open('https://www.baidu.com', '_blank', 'top=500,left=200,nodeIntegration=no')
+  components: {},
+  setup (props, { root }) {
+    onMounted(() => {
+      useWebView()
+      useElectronEvent(root)
+    })
+    const onClick = () => {
+      root.$electron.ipcRenderer.send('fosung-init', { a: 1, b: 2 })
     }
+    return { onClick }
   }
-}
+})
 </script>

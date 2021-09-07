@@ -14,8 +14,12 @@
     "postuninstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.1.4",
     "core-js": "^3.6.5",
+    "electron-store": "^8.0.0",
+    "fosung-css": "^1.0.6",
     "fosung-front": "^1.0.114",
+    "fosung-sdk": "^1.0.4",
     "fosung-ui": "^1.0.16",
     "vue": "^2.6.11",
     "vue-electron": "^1.0.6",
