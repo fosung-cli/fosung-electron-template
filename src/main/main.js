@@ -3,8 +3,8 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-import { isWindows, LOAD_URL, scheme, previewIcon } from './config/config'
-import initIpcEvent from './event'
+import { isWindows, LOAD_URL, previewIcon, scheme } from './config/config'
+import initIpcEvent from './event/on'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -20,7 +20,7 @@ async function createWindow () {
     height: 600, // 应用高度
     backgroundColor: '#FFF', // 应用的背景颜色
     center: true, // 窗口居中
-    movable: true,
+    movable: true, // 是否可拖动窗口
     resizable: true, // 窗口大小可调整
     // frame: isWindows, // 不是windows系统时创建无边框窗口
     // titleBarStyle: 'hiddenInset', // 默认为default 在macOs才会出现一个隐藏的标题栏
@@ -29,7 +29,7 @@ async function createWindow () {
     maximizable: true, // 窗口最大化 linux未实现
     closable: true, // 窗口可关闭 linux未实现
     autoHideMenuBar: !isDevelopment, // 自动隐藏菜单栏
-    title: isWindows ? '网易云音乐' : '',
+    title: isWindows ? '福生桌面端应用' : '',
     icon: previewIcon, // 窗口的图标. 在 Windows 上推荐使用 ICO 图标来获得最佳的视觉效果,
     webPreferences: {
       devTools: isDevelopment,
@@ -50,8 +50,7 @@ async function createWindow () {
     // 默认加载的是index.html 可在这里配置其他路径 例如：app://./index.html/#/login
     await win.loadURL(LOAD_URL)
   }
-  // 初始化主进程和渲染进程的事件监听
-  await initIpcEvent()
+
   return win
 }
 
@@ -90,6 +89,8 @@ app.on('ready', async () => {
   // 启动 Node.js 进程时传入的命令行参数数组
   global.argv = process.argv
   const win = global.win = await createWindow()
+  // 初始化主进程和渲染进程的事件监听
+  initIpcEvent()
   // 通过webContents主动发送数据给渲染进程
   win.webContents.send('init', '这是主动触发的数据')
 })

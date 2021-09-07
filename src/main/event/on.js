@@ -2,9 +2,10 @@ import { ipcMain } from 'electron'
 
 const events = [
   {
-    channel: '@fs/init',
+    channel: 'fosung-init',
     listener: (event, data) => {
-      console.log(data)
+      console.log(event, data)
+      return data
     }
   }
 ]

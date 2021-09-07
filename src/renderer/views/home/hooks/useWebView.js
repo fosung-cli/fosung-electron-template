@@ -9,7 +9,6 @@ const useWebView = () => {
       setTimeout(() => {
         const input = document.querySelector('#kw')
         const btn = document.querySelector('#su')
-        console.log(btn)
         input.value = '福生佳信'
         btn.click()
       }, 3000)

@@ -1,7 +1,12 @@
+#### 图片需要
+macOs安装图片  后缀.icns类型
+windows 安装图片 后缀.ico类型
+windows 卸载图片 uninset.ico图表
+通用图片 icon.ico
+
 #### 问题
 1. 如果控制台输出的是乱码， 在serve的时候需要加上 chcp 65001
 2. 如果需要调用其他的应用程序，需要该应用程序安装的绝对路径
-
 
 ### 打开新窗口
 1. 在设置sandBox或者nativeWindowOpen选项时，将创建一个浏览器窗口。
