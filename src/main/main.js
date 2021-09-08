@@ -1,12 +1,10 @@
 'use strict'
-
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { isWindows, LOAD_URL, previewIcon, scheme } from './config/config'
 import initIpcEvent from './event/on'
 import { FOSUNG_APPID } from '../constants'
-
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Scheme must be registered before the app is ready
