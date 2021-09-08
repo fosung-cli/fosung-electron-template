@@ -1,5 +1,6 @@
-import { BrowserWindow, Menu, app, shell, dialog } from 'electron'
+import { Menu, app, shell, dialog } from 'electron'
 import { isMacOS, isWindows } from '../config/config'
+import commonMenu from '../config/menu'
 
 const template = [
   {
@@ -24,55 +25,7 @@ const template = [
   },
   {
     label: '查看',
-    submenu: [
-      {
-        label: '重载',
-        accelerator: 'CmdOrCtrl+R',
-        click: (item, focusedWindow) => {
-          if (focusedWindow) {
-            // 重载之后, 刷新并关闭所有之前打开的次要窗体
-            if (focusedWindow.id === 1) {
-              BrowserWindow.getAllWindows().forEach(win => {
-                if (win.id > 1) win.close()
-              })
-            }
-            focusedWindow.reload()
-          }
-        }
-      },
-      {
-        label: '切换全屏',
-        accelerator: (() => {
-          if (process.platform === 'darwin') {
-            return 'Ctrl+Command+F'
-          } else {
-            return 'F11'
-          }
-        })(),
-        click: (item, focusedWindow) => {
-          if (focusedWindow) {
-            focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
-          }
-        }
-      },
-      {
-        label: '打开调试',
-        accelerator: (() => {
-          if (process.platform === 'darwin') {
-            return 'Alt+Command+I'
-          } else {
-            return 'Ctrl+Shift+I'
-          }
-        })(),
-        click: (item, focusedWindow) => {
-          if (focusedWindow) {
-            focusedWindow.toggleDevTools()
-          }
-        }
-      },
-      {
-        type: 'separator'
-      },
+    submenu: commonMenu.concat([
       {
         label: '应用程序菜单演示',
         click: function (item, focusedWindow) {
@@ -87,7 +40,8 @@ const template = [
             })
           }
         }
-      }]
+      }
+    ])
   },
   {
     label: '窗口',

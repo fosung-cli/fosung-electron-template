@@ -6,15 +6,17 @@ import createWindow from './window/createWindow'
 import { generateMenu } from './generator/menu'
 import generateDevTools from './generator/devtools'
 import generateVariable from './generator/variable'
+import generateContextMenu from './generator/context-menu'
 
 // events
 import closeAll from './event/closeAll'
-import created from './event/created'
+import createMenu from './event/create-menu'
 import initIpcEvent from './event/on'
 import activate from './event/activate'
 
 // quit
 import quit from './event/quit'
+import contextMenu from './event/context-menu'
 
 // 在应用程序准备就绪之前，必须注册方案
 protocol.registerSchemesAsPrivileged([
@@ -47,7 +49,10 @@ app.on('activate', async () => {
 })
 
 // 1. 在创建新的 browserWindow 时发出
-app.on('browser-window-created', () => created())
+app.on('browser-window-created', (event, win) => {
+  createMenu()
+  contextMenu(win, generateContextMenu())
+})
 
 // 1. 关闭所有窗口后退出
 app.on('window-all-closed', closeAll)

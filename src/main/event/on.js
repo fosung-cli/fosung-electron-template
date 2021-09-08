@@ -1,5 +1,6 @@
-import { ipcMain } from 'electron'
-import notification from './../generator/notification'
+import { BrowserWindow, ipcMain } from 'electron'
+import geterateNotification from './../generator/notification'
+import { menu } from '../generator/context-menu'
 import { FOSUNG_OFFLINE, FOSUNG_ONLINE } from '../../constants'
 
 /**
@@ -10,13 +11,20 @@ const events = [
   {
     channel: FOSUNG_OFFLINE,
     listener: (event, data) => {
-      notification(data)
+      geterateNotification(data)
     }
   },
   {
     channel: FOSUNG_ONLINE,
     listener: (event, data) => {
-      notification(data)
+      geterateNotification(data)
+    }
+  },
+  {
+    channel: 'show-context-menu',
+    listener: (event) => {
+      const win = BrowserWindow.fromWebContents(event.sender)
+      menu.popup({ window: win })
     }
   }
 ]
