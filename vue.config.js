@@ -145,9 +145,9 @@ module.exports = {
       // 打包输出路径
       outputDir: 'dist/electron',
       // 使用此选项可更改应用程序主进程的入口点
-      mainProcessFile: 'src/main/main.js'
+      mainProcessFile: 'src/main/main.js',
       // 内容发生改变自动重启
-      // mainProcessWatch: ['src/main']
+      mainProcessWatch: ['src/main']
     }
   }
 }

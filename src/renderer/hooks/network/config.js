@@ -1,6 +1,5 @@
 import { ipcRenderer } from 'electron'
 import { FOSUNG_OFFLINE, FOSUNG_ONLINE } from '@c/index'
-
 const events = [
   {
     el: window,

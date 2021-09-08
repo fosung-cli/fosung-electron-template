@@ -5,6 +5,7 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { isWindows, LOAD_URL, previewIcon, scheme } from './config/config'
 import initIpcEvent from './event/on'
+import { FOSUNG_APPID } from '../constants'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -15,6 +16,7 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow () {
   // 创建浏览器窗口
+  app.setAppUserModelId(FOSUNG_APPID)
   const win = new BrowserWindow({
     width: 800, // 应用宽度
     height: 600, // 应用高度
@@ -50,7 +52,6 @@ async function createWindow () {
     // 默认加载的是index.html 可在这里配置其他路径 例如：app://./index.html/#/login
     await win.loadURL(LOAD_URL)
   }
-
   return win
 }
 

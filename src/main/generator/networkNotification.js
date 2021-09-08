@@ -1,5 +1,4 @@
-import { app, Notification } from 'electron'
-import { FOSUNG_APPID } from '../../constants'
+import { Notification } from 'electron'
 
 const baseConfig = {
   title: '提示',
@@ -11,7 +10,6 @@ const baseConfig = {
 }
 
 function networkNotification (config) {
-  app.setAppUserModelId(FOSUNG_APPID)
   const finalConfig = Object.assign({}, baseConfig, config)
   const notification = new Notification(finalConfig)
   notification.show()
