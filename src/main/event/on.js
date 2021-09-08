@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron'
+import notification from './../generator/notification'
 import { FOSUNG_OFFLINE, FOSUNG_ONLINE } from '../../constants'
-import networkNotification from './../generator/networkNotification'
 
 /**
  * @description 需要初始化的主进程的监听事件
@@ -10,19 +10,21 @@ const events = [
   {
     channel: FOSUNG_OFFLINE,
     listener: (event, data) => {
-      networkNotification(data)
+      notification(data)
     }
   },
   {
     channel: FOSUNG_ONLINE,
     listener: (event, data) => {
-      networkNotification(data)
+      notification(data)
     }
   }
 ]
 
-export default function initIpcEvent () {
+async function initIpcEvent () {
   events.forEach(ev => {
     ipcMain.on(ev.channel, ev.listener)
   })
 }
+
+export default initIpcEvent

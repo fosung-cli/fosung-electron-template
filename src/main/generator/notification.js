@@ -9,10 +9,10 @@ const baseConfig = {
   timeoutType: 'default'
 }
 
-function networkNotification (config) {
+function notification (config) {
   const finalConfig = Object.assign({}, baseConfig, config)
   const notification = new Notification(finalConfig)
   notification.show()
 }
 
-export default networkNotification
+export default notification
