@@ -9,7 +9,7 @@ import 'fosung-front/lib/fosung-front.css'
 
 const fosungFront = new FosungFront()
 
-fosungFront.storeBuilder().addModules(require.context('@/store/', true, /\.js$/))
+fosungFront.storeBuilder().addModules(require.context('@/store/modules', true, /\.js$/))
 fosungFront.httpBuilder().api(require.context('@/api/', true, /\.js$/))
 fosungFront.routerBuilder().menu(menu).mode(process.env.IS_ELECTRON ? 'hash' : 'history')
 fosungFront.vueBuilder().install(FosungUI, { size: 'mini' }).install(VueElectron).install(VueCompositionApi).components(require.context('@/components/', true, /\.vue$/)) // 注册全局组件
