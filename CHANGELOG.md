@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/compare/v0.0.3...v0.0.4) (2021-09-09)
+
+
+### Features
+
+* **代码格式化配置:** 代码格式化配置 ([994681e](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/commit/994681eba741de0e06b2d446331205bddb2077d9))
+
+
+### Bug Fixes
+
+* 安装依赖 ([a646102](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/commit/a64610276007880941ce7fc860e5941ecc992cda))
+
 ### [0.0.3](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/compare/v0.0.2...v0.0.3) (2021-09-09)
 
 
