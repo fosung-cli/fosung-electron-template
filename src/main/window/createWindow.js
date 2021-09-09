@@ -8,4 +8,5 @@ async function createWindow () {
   // 2. 创建浏览器窗口
   return await generateWin()
 }
+
 export default createWindow
