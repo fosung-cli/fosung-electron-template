@@ -1,11 +1,11 @@
 {
   "name": "fs-electron",
-  "version": "0.0.6-0",
+  "version": "0.0.6-1",
   "private": true,
   "appId": "com.fosung.electron",
   "main": "background.js",
   "scripts": {
-    "commit": "npx git-cz",
+    "commit": "git add . && npx git-cz",
     "release": "standard-version",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -49,11 +49,13 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "gitmoji-cli": "^4.6.1",
     "husky": "^4.2.5",
     "lint-staged": "^9.5.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "standard-version": "^9.3.1",
+    "validate-commit-message": "^3.2.0",
     "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-template-compiler": "^2.6.11"
   },
@@ -65,11 +67,10 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "./validate-commit-msg.js"
     }
   },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint --fix",
-    "*.{scss}": "prettier --write"
+    "*.{js,ts,vue}": "eslint --fix"
   }
 }
