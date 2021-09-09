@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-0](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/compare/v0.0.5...v0.0.6-0) (2021-09-09)
+
+
+### Bug Fixes
+
+* **删除.gitkeep:** 删除gitkeep ([69bac6b](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/commit/69bac6b90fda1fe8f5c1a88302020e78a33637ef))
+
 ### [0.0.5](https://ngit.fosung.com/fosung-framework/front/fosung-electron-template/compare/v0.0.4...v0.0.5) (2021-09-09)
 
 
