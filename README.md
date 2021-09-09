@@ -27,3 +27,4 @@ window.open('http://www.baidu.com', '_black', 'top=500,left=200, nodeIntegration
 lerna publish --conventional-commits
 "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
 ```
+
