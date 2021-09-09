@@ -1,9 +1,11 @@
 import { Menu, MenuItem } from 'electron'
-import commonMenu from '../config/menu'
+import { commonMenu, editMenu } from '../config/menu'
 export const menu = new Menu()
 
+const allMenu = [].concat(editMenu, commonMenu)
+
 function generateContextMenu () {
-  commonMenu.forEach(item => {
+  allMenu.forEach(item => {
     menu.append(new MenuItem(item))
   })
   return menu

@@ -1,27 +1,11 @@
 import { Menu, app, shell, dialog } from 'electron'
 import { isMacOS, isWindows } from '../config/config'
-import commonMenu from '../config/menu'
+import { commonMenu, editMenu } from '../config/menu'
 
 const template = [
   {
     label: '编辑',
-    submenu: [
-      {
-        label: '复制',
-        accelerator: 'CmdOrCtrl+C',
-        role: 'copy'
-      },
-      {
-        label: '粘贴',
-        accelerator: 'CmdOrCtrl+V',
-        role: 'paste'
-      },
-      {
-        label: '全选',
-        accelerator: 'CmdOrCtrl+A',
-        role: 'selectall'
-      }
-    ]
+    submenu: editMenu
   },
   {
     label: '查看',

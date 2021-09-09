@@ -51,4 +51,17 @@ const commonMenu = [
   }
 ]
 
-export default commonMenu
+const editMenu = [
+  {
+    label: '复制',
+    accelerator: 'CmdOrCtrl+C',
+    role: 'copy'
+  },
+  {
+    label: '粘贴',
+    accelerator: 'CmdOrCtrl+V',
+    role: 'paste'
+  }
+]
+
+export { editMenu, commonMenu }
