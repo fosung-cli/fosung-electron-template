@@ -1,12 +1,12 @@
 {
   "name": "fs-electron",
-  "version": "0.0.6-1",
+  "version": "0.0.6-2",
   "private": true,
   "appId": "com.fosung.electron",
   "main": "background.js",
   "scripts": {
     "commit": "git add . && npx git-cz",
-    "release": "./release.sh",
+    "release": "sh ./release.sh --",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "eslint \"{src}/**/*.{vue, js, jsx}\" --fix",
