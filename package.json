@@ -5,12 +5,12 @@
   "appId": "com.fosung.electron",
   "main": "background.js",
   "scripts": {
+    "lint": "eslint \"{src}/**/*.{vue, js, jsx}\" --fix",
     "prepare": "husky install",
     "commit": "git add . && npx git-cz",
     "release": "sh ./release.sh",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint \"{src}/**/*.{vue, js, jsx}\" --fix",
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
