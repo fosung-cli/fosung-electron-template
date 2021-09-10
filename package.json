@@ -5,6 +5,7 @@
   "appId": "com.fosung.electron",
   "main": "background.js",
   "scripts": {
+    "prepare": "husky install",
     "commit": "git add . && npx git-cz",
     "release": "sh ./release.sh",
     "serve": "vue-cli-service serve",
@@ -50,7 +51,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "gitmoji-cli": "^4.6.1",
-    "husky": "^4.2.5",
+    "husky": "^7.0.2",
     "lint-staged": "^9.5.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
@@ -61,12 +62,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
