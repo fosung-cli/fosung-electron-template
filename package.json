@@ -1,6 +1,6 @@
 {
   "name": "fs-electron",
-  "version": "0.0.0",
+  "version": "0.0.1-0",
   "private": true,
   "appId": "com.fosung.electron",
   "main": "background.js",
