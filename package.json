@@ -8,7 +8,6 @@
     "lint": "eslint \"{src}/**/*.{vue, js, jsx}\" --fix",
     "prepare": "husky install",
     "commit": "git add . && npx git-cz",
-    "release": "sh ./release.sh",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "electron:build": "vue-cli-service electron:build",
